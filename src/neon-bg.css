@@ -96,3 +96,72 @@ body {
   backdrop-filter: blur(20px);
 }
 .social svg { display:block; }
+
+/* Gaming vibe fonts + text effects */
+body, p, .section-note, .empty-state p, footer p, .footer-column a {
+  font-family: 'Exo 2', Manrope, sans-serif;
+}
+
+h1, h2, h3, h4, .brand, .kicker, .eyebrow, .game-name, .section h2, .panel-head h2, .discord-banner h2 {
+  font-family: 'Orbitron', 'Barlow Condensed', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+h1 {
+  background: linear-gradient(135deg, #00e5ff 0%, #ffffff 40%, #ffd700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 12px rgba(0,229,255,0.5));
+  font-weight: 800;
+}
+
+.cover-overlay h1 em, h1 em {
+  -webkit-text-fill-color: #00e5ff;
+  color: #00e5ff;
+  text-shadow: 0 0 20px rgba(0,229,255,0.7), 0 0 40px rgba(0,229,255,0.3);
+  font-style: normal;
+}
+
+.kicker, .eyebrow {
+  font-family: 'Rajdhani', sans-serif;
+  color: #ffd700;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.5);
+}
+
+.brand {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+}
+
+.brand b {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.6);
+}
+
+.game-tile .game-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.primary, .discord, .outline-link {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.empty-state h3, .section h2, .panel-head h2 {
+  text-shadow: 0 0 15px rgba(0,229,255,0.4);
+}
+
+.footer-column h4 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00e5ff;
+  letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(0,229,255,0.5);
+}
