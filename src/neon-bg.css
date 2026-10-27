@@ -507,3 +507,21 @@ footer::before {
 .news-item:hover {
   color: #00e5ff;
 }
+
+/* Game thumbnail icons */
+.game-icon {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  background: rgba(0,0,0,0.3);
+  display: block;
+  box-shadow: 0 0 12px rgba(0,229,255,0.15);
+}
+.game-tile:hover .game-icon {
+  box-shadow: 0 0 18px rgba(255,215,0,0.35);
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
