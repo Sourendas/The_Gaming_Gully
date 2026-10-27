@@ -1,0 +1,22 @@
+.brand-logo {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid rgba(78, 229, 255, 0.72);
+  box-shadow: 0 0 15px rgba(78, 229, 255, 0.32);
+}
+
+footer .brand-logo {
+  width: 34px;
+  height: 34px;
+}
+
+.discord {
+  text-decoration: none;
+  display: inline-block;
+}
+
+@media (max-width: 560px) {
+  .brand-logo { width: 30px; height: 30px; }
+}

@@ -1,0 +1,6 @@
+nav a { color: #c7c8d5; font-size: 13px; font-weight: 700; text-decoration: none; }
+nav a:hover { color: var(--cyan); }
+.primary, .secondary, .discord { text-decoration: none; display: inline-block; }
+.primary { text-align: center; }
+.secondary { color: var(--text); text-align: center; }
+@media (max-width: 880px) { .topbar nav.open { display: flex; } }
