@@ -441,3 +441,69 @@ footer::before {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-4px); box-shadow: 0 0 16px rgba(0,229,255,0.5); }
 }
+
+/* === ROLLING NEWSFEED === */
+.news-ticker {
+  background: linear-gradient(90deg, rgba(5,5,15,0.95), rgba(10,5,20,0.95));
+  border-bottom: 1px solid rgba(0,229,255,0.3);
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9;
+}
+.news-ticker .label {
+  background: linear-gradient(90deg, #ffd700, #00e5ff);
+  color: #05050a;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 0 12px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  z-index: 2;
+  box-shadow: 4px 0 12px rgba(0,0,0,0.4);
+}
+.news-ticker .ticker-wrap {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+.news-ticker .ticker-content {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  white-space: nowrap;
+  animation: ticker 40s linear infinite;
+}
+.news-ticker .ticker-content:hover {
+  animation-play-state: paused;
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.news-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 24px;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 12px;
+  color: #e0e4f0;
+  text-decoration: none;
+}
+.news-item .game-tag {
+  color: #ffd700;
+  font-weight: 700;
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.5px;
+}
+.news-item:hover {
+  color: #00e5ff;
+}
