@@ -1,13 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <defs>
     <filter id="glow">
-      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
       <feMerge>
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
-  <rect width="32" height="32" rx="6" fill="#05050a"/>
-  <text x="16" y="22" text-anchor="middle" font-family="Orbitron, Arial Black, sans-serif" font-size="11" font-weight="800" fill="#ffd700" filter="url(#glow)">TGG</text>
+  <text x="16" y="23" text-anchor="middle" font-family="Orbitron, Arial Black, sans-serif" font-size="14" font-weight="900" fill="#ffd700" filter="url(#glow)">TGG</text>
 </svg>
