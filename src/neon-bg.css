@@ -479,7 +479,7 @@ footer::before {
   align-items: center;
   height: 100%;
   white-space: nowrap;
-  animation: ticker 40s linear infinite;
+  animation: ticker 18s linear infinite;
 }
 .news-ticker .ticker-content:hover {
   animation-play-state: paused;
