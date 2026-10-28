@@ -525,3 +525,217 @@ footer::before {
   transition: 0.2s;
 }
 
+
+/* ===== FONT PROPORTIONS + ALIGNMENT FIXES + UNIVERSAL HOVER ANIMATIONS ===== */
+
+/* Refined font hierarchy */
+h1 {
+  font-size: clamp(2.8rem, 6.5vw, 5.2rem) !important;
+  line-height: 0.92 !important;
+  letter-spacing: 0.5px !important;
+}
+h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem) !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.6em;
+}
+h3 {
+  font-size: clamp(1.15rem, 2vw, 1.5rem) !important;
+  line-height: 1.25;
+}
+.brand {
+  font-size: 1.05rem !important;
+  letter-spacing: 0.8px !important;
+  gap: 10px !important;
+}
+nav a, .header-actions button, .login-btn {
+  font-size: 0.92rem !important;
+  letter-spacing: 0.4px;
+}
+.game-name {
+  font-size: 0.95rem !important;
+  margin-top: 6px;
+  display: block;
+}
+.game-tile small {
+  font-size: 0.72rem !important;
+  opacity: 0.75;
+  display: block;
+  margin-top: 2px;
+}
+.game-tile i {
+  font-size: 0.68rem !important;
+  letter-spacing: 0.5px;
+}
+.kicker, .eyebrow {
+  font-size: 0.72rem !important;
+  letter-spacing: 2.5px !important;
+}
+.section-note, .empty-state p, footer p {
+  font-size: 0.88rem !important;
+  line-height: 1.55;
+}
+
+/* Icon alignment fixes */
+.brand-logo {
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,229,255,0.25);
+  background: rgba(0,229,255,0.06);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+.discord.mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.discord.mini svg {
+  flex-shrink: 0;
+}
+.game-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px 16px 22px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.game-icon {
+  margin: 0 0 12px 0;
+  flex-shrink: 0;
+}
+
+/* Universal hover animations */
+a, button, .game-tile, .content-panel, .outline-link, .social, .news-item, .login-btn, .primary, .discord, .secondary {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              color 0.25s ease,
+              filter 0.25s ease;
+}
+
+/* Nav links */
+nav a:hover {
+  color: #00e5ff !important;
+  text-shadow: 0 0 12px rgba(0,229,255,0.6);
+  transform: translateY(-1px);
+}
+
+/* Brand */
+.brand:hover {
+  transform: scale(1.03);
+}
+.brand:hover .brand-logo {
+  box-shadow: 0 0 22px rgba(0,229,255,0.7);
+  transform: rotate(-3deg) scale(1.05);
+}
+
+/* Buttons */
+.primary:hover, .discord:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 28px rgba(0,229,255,0.45);
+  filter: brightness(1.1);
+}
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(255,215,0,0.4);
+}
+.secondary:hover, .outline-link:hover {
+  transform: translateY(-2px);
+  border-color: #00e5ff !important;
+  color: #00e5ff !important;
+  box-shadow: 0 0 16px rgba(0,229,255,0.3);
+}
+
+/* Game tiles */
+.game-tile:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: #ffd700 !important;
+  box-shadow: 0 12px 32px rgba(255,215,0,0.25), 0 0 20px rgba(0,229,255,0.15);
+  background-color: rgba(13,13,20,0.9);
+}
+.game-tile:hover .game-icon {
+  transform: scale(1.12) rotate(2deg);
+  box-shadow: 0 0 24px rgba(255,215,0,0.5);
+}
+.game-tile:hover .game-name {
+  color: #ffd700;
+  text-shadow: 0 0 10px rgba(255,215,0,0.5);
+}
+
+/* Social icons */
+.social:hover {
+  transform: translateY(-4px) scale(1.15);
+  border-color: #ffd700;
+  background: rgba(255,215,0,0.15);
+  box-shadow: 0 0 20px rgba(255,215,0,0.45);
+  color: #ffd700;
+}
+
+/* Footer links */
+.footer-column a:hover {
+  color: #00e5ff !important;
+  transform: translateX(4px);
+  text-shadow: 0 0 8px rgba(0,229,255,0.5);
+}
+
+/* Panels & cards */
+.content-panel:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,229,255,0.45) !important;
+  box-shadow: 0 8px 28px rgba(0,229,255,0.12);
+}
+
+/* News items */
+.news-item:hover {
+  color: #00e5ff !important;
+  text-shadow: 0 0 8px rgba(0,229,255,0.4);
+  transform: scale(1.02);
+}
+
+/* Empty states & marks */
+.empty-mark {
+  transition: transform 0.3s ease;
+}
+.empty-state:hover .empty-mark {
+  transform: scale(1.2) rotate(15deg);
+  color: #ffd700;
+}
+
+/* Discord banner */
+.discord-banner:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 50px rgba(0,229,255,0.25);
+}
+
+/* Modal close */
+.close:hover {
+  transform: scale(1.2) rotate(90deg);
+  color: #ffd700;
+}
+
+/* Hamburger */
+.hamburger:hover {
+  transform: scale(1.1);
+  color: #00e5ff;
+}
