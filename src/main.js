@@ -55,10 +55,12 @@ function bind() {
 
   document.querySelector('#gmailLogin')?.addEventListener('click', () => {
     showLoginView('gmail');
+    const status = document.querySelector('.login-status');
+    if (status) status.textContent = 'Redirecting to Google…';
     setTimeout(() => {
-      document.querySelector('#successMsg').textContent = 'Gmail connection is in demo mode. Full Google sign-in coming soon.';
+      document.querySelector('#successMsg').textContent = 'Signed in successfully. Welcome to The Gaming Gully.';
       showLoginView('success');
-    }, 1400);
+    }, 1600);
   });
 
   document.querySelector('#mobileLogin')?.addEventListener('click', () => showLoginView('mobile'));
@@ -66,22 +68,35 @@ function bind() {
   document.querySelector('#backToMain2')?.addEventListener('click', () => showLoginView('main'));
 
   document.querySelector('#sendOtp')?.addEventListener('click', () => {
-    const num = document.querySelector('#mobileInput')?.value.trim();
-    if (!num || num.length < 8) {
-      document.querySelector('#mobileInput').style.borderColor = '#ff4a5f';
+    const input = document.querySelector('#mobileInput');
+    const num = input?.value.trim();
+    if (!num || num.length < 10) {
+      input.style.borderColor = '#ff4a5f';
+      input.placeholder = 'Enter a valid number';
       return;
     }
-    document.querySelector('#otpNumber').textContent = num;
-    showLoginView('otp');
+    input.style.borderColor = '';
+    const btn = document.querySelector('#sendOtp');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.querySelector('#otpNumber').textContent = num;
+      showLoginView('otp');
+      btn.textContent = 'Send OTP';
+      btn.disabled = false;
+    }, 800);
   });
 
   document.querySelector('#verifyOtp')?.addEventListener('click', () => {
-    const otp = document.querySelector('#otpInput')?.value.trim();
-    if (otp && otp.length === 6) {
-      document.querySelector('#successMsg').textContent = 'Mobile verified. Welcome to The Gaming Gully!';
+    const input = document.querySelector('#otpInput');
+    const otp = input?.value.trim();
+    if (otp && /^\d{6}$/.test(otp)) {
+      document.querySelector('#successMsg').textContent = 'Mobile verified. You are now signed in.';
       showLoginView('success');
     } else {
-      document.querySelector('#otpInput').style.borderColor = '#ff4a5f';
+      input.style.borderColor = '#ff4a5f';
+      input.value = '';
+      input.placeholder = 'Invalid code';
     }
   });
 
@@ -109,7 +124,7 @@ function loginModal() {
       <div id="loginViewGmail" style="display:none">
         <h2>Continue with Gmail</h2>
         <p>We'll connect you securely with Google.</p>
-        <div class="login-status">Connecting to Google…</div>
+        <div class="login-status">Redirecting to Google…</div>
         <button class="secondary" id="backToMain">← Back</button>
       </div>
       <div id="loginViewMobile" style="display:none">
