@@ -28,31 +28,109 @@ function render() { app.innerHTML = `${header()}<div class="news-ticker" id="new
 function bind() { 
   document.querySelector('#hamburger').onclick = () => document.querySelector('#mainNav').classList.toggle('open');
   document.querySelector('#loginBtn').onclick = () => {
-    const modal = document.querySelector('#loginModal');
-    if (modal) modal.classList.add('show');
+    showLoginView('main');
+    document.querySelector('#loginModal')?.classList.add('show');
   };
   document.addEventListener('click', e => {
     if (e.target.id === 'loginModal' || e.target.classList.contains('close-login')) {
       document.querySelector('#loginModal')?.classList.remove('show');
     }
   });
+
+  const views = {
+    main: '#loginViewMain',
+    gmail: '#loginViewGmail',
+    mobile: '#loginViewMobile',
+    otp: '#loginViewOtp',
+    success: '#loginViewSuccess'
+  };
+  function showLoginView(name) {
+    Object.values(views).forEach(id => {
+      const el = document.querySelector(id);
+      if (el) el.style.display = 'none';
+    });
+    const target = document.querySelector(views[name]);
+    if (target) target.style.display = 'block';
+  }
+
   document.querySelector('#gmailLogin')?.addEventListener('click', () => {
-    alert('Gmail login coming soon. Connect your Google account.');
+    showLoginView('gmail');
+    setTimeout(() => {
+      document.querySelector('#successMsg').textContent = 'Gmail connection is in demo mode. Full Google sign-in coming soon.';
+      showLoginView('success');
+    }, 1400);
   });
-  document.querySelector('#mobileLogin')?.addEventListener('click', () => {
-    const num = prompt('Enter mobile number (with country code):');
-    if (num) alert('OTP sent to ' + num + ' (demo only)');
+
+  document.querySelector('#mobileLogin')?.addEventListener('click', () => showLoginView('mobile'));
+  document.querySelector('#backToMain')?.addEventListener('click', () => showLoginView('main'));
+  document.querySelector('#backToMain2')?.addEventListener('click', () => showLoginView('main'));
+
+  document.querySelector('#sendOtp')?.addEventListener('click', () => {
+    const num = document.querySelector('#mobileInput')?.value.trim();
+    if (!num || num.length < 8) {
+      document.querySelector('#mobileInput').style.borderColor = '#ff4a5f';
+      return;
+    }
+    document.querySelector('#otpNumber').textContent = num;
+    showLoginView('otp');
+  });
+
+  document.querySelector('#verifyOtp')?.addEventListener('click', () => {
+    const otp = document.querySelector('#otpInput')?.value.trim();
+    if (otp && otp.length === 6) {
+      document.querySelector('#successMsg').textContent = 'Mobile verified. Welcome to The Gaming Gully!';
+      showLoginView('success');
+    } else {
+      document.querySelector('#otpInput').style.borderColor = '#ff4a5f';
+    }
+  });
+
+  document.querySelector('#resendOtp')?.addEventListener('click', () => {
+    const btn = document.querySelector('#resendOtp');
+    btn.textContent = 'OTP resent';
+    setTimeout(() => btn.textContent = 'Resend OTP', 2000);
+  });
+
+  document.querySelector('#closeSuccess')?.addEventListener('click', () => {
+    document.querySelector('#loginModal')?.classList.remove('show');
   });
 }
 function loginModal() {
   return `<div class="modal-backdrop" id="loginModal">
     <div class="modal login-modal">
       <button class="close close-login">×</button>
-      <h2>Login to The Gaming Gully</h2>
-      <p>Join India's gaming adda. Sign in to find squads, events, and more.</p>
-      <button class="primary" id="gmailLogin">Continue with Gmail</button>
-      <div class="or-divider"><span>or</span></div>
-      <button class="secondary" id="mobileLogin">Continue with Mobile</button>
+      <div id="loginViewMain">
+        <h2>Login to The Gaming Gully</h2>
+        <p>Join India's gaming adda. Sign in to find squads, events, and more.</p>
+        <button class="primary" id="gmailLogin">Continue with Gmail</button>
+        <div class="or-divider"><span>or</span></div>
+        <button class="secondary" id="mobileLogin">Continue with Mobile</button>
+      </div>
+      <div id="loginViewGmail" style="display:none">
+        <h2>Continue with Gmail</h2>
+        <p>We'll connect you securely with Google.</p>
+        <div class="login-status">Connecting to Google…</div>
+        <button class="secondary" id="backToMain">← Back</button>
+      </div>
+      <div id="loginViewMobile" style="display:none">
+        <h2>Continue with Mobile</h2>
+        <p>Enter your mobile number with country code.</p>
+        <input type="tel" id="mobileInput" placeholder="+91 98765 43210" class="login-input">
+        <button class="primary" id="sendOtp">Send OTP</button>
+        <button class="secondary" id="backToMain2">← Back</button>
+      </div>
+      <div id="loginViewOtp" style="display:none">
+        <h2>Enter OTP</h2>
+        <p>We sent a code to <span id="otpNumber"></span></p>
+        <input type="text" id="otpInput" placeholder="Enter 6-digit code" class="login-input" maxlength="6">
+        <button class="primary" id="verifyOtp">Verify</button>
+        <button class="secondary" id="resendOtp">Resend OTP</button>
+      </div>
+      <div id="loginViewSuccess" style="display:none">
+        <h2>Welcome to the Gully</h2>
+        <p id="successMsg">You're signed in.</p>
+        <button class="primary" id="closeSuccess">Continue</button>
+      </div>
     </div>
   </div>`;
 }
