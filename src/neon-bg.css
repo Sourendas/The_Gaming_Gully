@@ -2,7 +2,7 @@
 body {
   background-color: #05050a;
   background-image:
-    linear-gradient(180deg, rgba(5,5,10,0.55) 0%, rgba(5,5,10,0.65) 40%, rgba(5,5,10,0.7) 100%),
+    linear-gradient(180deg, rgba(5,5,10,0.82) 0%, rgba(5,5,10,0.88) 40%, rgba(5,5,10,0.92) 100%),
     url('/assets/bg-after-dark.webp');
   background-size: cover;
   background-position: center;
@@ -10,71 +10,54 @@ body {
   background-blend-mode: multiply;
 }
 
-/* Full-bleed section backgrounds so side borders aren't blank/black */
-.section {
-  position: relative;
-  background-color: transparent !important;
+.cover {
+  background-image:
+    linear-gradient(90deg, rgba(5,5,10,0.75) 0%, rgba(5,5,10,0.4) 50%, rgba(5,5,10,0.7) 100%),
+    url('/assets/bg-cyberpunk.webp');
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
 }
-.section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 100%;
+
+.section.intro {
+  background-image:
+    linear-gradient(180deg, rgba(5,5,10,0.85), rgba(5,5,10,0.9)),
+    url('/assets/bg-cyber-city.webp');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.section.games-section {
+  background-image:
+    linear-gradient(180deg, rgba(5,5,10,0.88), rgba(5,5,10,0.92)),
+    url('/assets/bg-neon-hub.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.community-grid, .updates, .discord-banner {
+  position: relative;
+}
+
+.community-grid::before, .updates::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/bg-after-dark.webp');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
   z-index: -1;
   pointer-events: none;
 }
 
-.cover {
-  background-image: none;
-  background-color: transparent;
-  position: relative;
-}
-.cover > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: 0;
-}
-.cover-overlay {
-  position: relative;
-  z-index: 1;
-}
-
-.section.intro::before {
-  background-image:
-    linear-gradient(180deg, rgba(5,5,10,0.65), rgba(5,5,10,0.75)),
-    url('/assets/bg-cyber-city.webp');
-}
-
-.section.games-section::before {
-  background-image:
-    linear-gradient(180deg, rgba(5,5,10,0.7), rgba(5,5,10,0.78)),
-    url('/assets/bg-cyberpunk.webp');
-}
-
-.section.community-grid::before,
-.section.updates::before {
-  background-image:
-    linear-gradient(180deg, rgba(5,5,10,0.72), rgba(5,5,10,0.8)),
-    url('/assets/bg-after-dark.webp');
-}
-
 .discord-banner {
   background:
-    linear-gradient(100deg, rgba(0,20,40,0.75), rgba(20,10,40,0.7)),
-    url('/assets/bg-neon-hub.webp') center/cover;
+    linear-gradient(100deg, rgba(0,20,40,0.9), rgba(20,10,40,0.85)),
+    url('/assets/bg-cyberpunk.webp') center/cover;
   border: 1px solid rgba(0,229,255,0.3);
   box-shadow: 0 0 40px rgba(0,229,255,0.15);
-  position: relative;
 }
 
 /* Gold accents */
