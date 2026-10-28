@@ -43,26 +43,26 @@ body {
 .section.intro::before {
   background-image:
     linear-gradient(180deg, rgba(5,5,10,0.55), rgba(5,5,10,0.65)),
-    url('/assets/bg-cyber-city.webp');
+    url('/assets/bg-lower-1.webp');
 }
 
 .section.games-section::before {
   background-image:
     linear-gradient(180deg, rgba(5,5,10,0.6), rgba(5,5,10,0.7)),
-    url('/assets/bg-neon-hub.webp');
+    url('/assets/bg-lower-2.webp');
 }
 
 .section.community-grid::before,
 .section.updates::before {
   background-image:
     linear-gradient(180deg, rgba(5,5,10,0.58), rgba(5,5,10,0.68)),
-    url('/assets/bg-after-dark.webp');
+    url('/assets/bg-lower-3.webp');
 }
 
 .discord-banner {
   background:
     linear-gradient(100deg, rgba(0,20,40,0.75), rgba(20,10,40,0.7)),
-    url('/assets/bg-cyberpunk.webp') center/cover;
+    url('/assets/bg-lower-4.webp') center/cover;
   border: 1px solid rgba(0,229,255,0.3);
   box-shadow: 0 0 40px rgba(0,229,255,0.15);
   position: relative;
