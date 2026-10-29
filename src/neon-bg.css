@@ -832,3 +832,28 @@ nav a:hover {
   color: #ffd700;
   text-shadow: 0 0 12px rgba(255,215,0,0.5);
 }
+
+/* Classic Games highlight tab */
+nav a.classic-games {
+  position: relative;
+  color: #ffd700 !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(255,215,0,0.12), rgba(0,229,255,0.08));
+  border: 1px solid rgba(255,215,0,0.45);
+  box-shadow: 0 0 12px rgba(255,215,0,0.25);
+  animation: classicPulse 2.5s ease-in-out infinite;
+}
+nav a.classic-games:hover {
+  color: #fff !important;
+  background: linear-gradient(135deg, #ffd700, #00e5ff);
+  border-color: #ffd700;
+  box-shadow: 0 0 20px rgba(255,215,0,0.6);
+  transform: translateY(-2px);
+}
+@keyframes classicPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255,215,0,0.3); }
+  50% { box-shadow: 0 0 18px rgba(255,215,0,0.55); }
+}
